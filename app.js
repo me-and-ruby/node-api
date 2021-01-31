@@ -1,6 +1,7 @@
 const express=require('express');
 const bodyparser=require('body-parser');
 const post_route=require('./routes/post');
+const db=require("./db")
 
 const app=express();
 const port=3000 ;

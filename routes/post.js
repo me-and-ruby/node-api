@@ -1,8 +1,16 @@
 const express=require('express');
 const post_route=express.Router();
+const Post=require("../model/post")
 
 post_route.get("/",(req,res)=>{
-  res.send("here all posts")
+  Post.find((err,doc)=>{
+     if(!err){
+       res.send(doc)
+     }
+     else{
+       res.send(JSON.stringify(err,null,2))
+     }
+  })
 })
 post_route.post("/",(req,res)=>{
   res.send("add a post")
